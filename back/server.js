@@ -5,7 +5,7 @@ const connectDatabase = require("./config/database");
 const dotenv=require("dotenv");
 dotenv.config({path: 'back/config/config.env'})
 
-//Configurar base de datos
+//Configurar base de datos.
 connectDatabase();
 
 //Llamemos al server
