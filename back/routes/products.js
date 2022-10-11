@@ -5,6 +5,6 @@ const {getProducts, newProduct}=require('../controllers/productsController') //T
 
 
 router.route('/productos').get(getProducts) //Establecemos desde que ruta queremos ver el getProducts
-router.route('/producto/nuevo').post(newProduct); //Establecemos la ruta
+router.route('/producto/nuevo').post(newProduct) //Establecemos la ruta 
 
 module.exports = router;
