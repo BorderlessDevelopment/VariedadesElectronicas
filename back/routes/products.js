@@ -10,6 +10,4 @@ router.route('/producto/:id').get(getProductById) //Ruta para consultar por id d
 router.route('/producto/:id').put(updateProduct) //Ruta para actualizar producto
 router.route('/producto/:id').delete(deleteProduct) //Ruta para actualizar producto
 
-
-
 module.exports = router;
