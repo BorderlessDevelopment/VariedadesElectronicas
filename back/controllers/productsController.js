@@ -1,6 +1,6 @@
 
 const producto=require("../models/productos")
-const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url)); //Usurpación del require
+const fetch =(url)=>import("node-fetch").then(({default:fetch})=>fetch(url)); //Usurpación del require
 
 //Ver la lista de productos
 exports.getProducts=async (req,res,next) =>{
@@ -26,7 +26,7 @@ exports.getProductById= async (req, res, next)=>{
     if (!product){
             return res.status(404).json({
             success:false,
-            message: 'No encontramos ese producto'
+            message: "No encontramos ese producto"
         })
     }
     res.status(200).json({
@@ -42,7 +42,7 @@ exports.updateProduct= async (req,res,next) =>{
     if (!product){ //Verifico que el objeto no existe para finalizar el proceso
             return res.status(404).json({
             success:false,
-            message: 'No encontramos ese producto'
+            message: "No encontramos ese producto"
         })
     }
     //Si el objeto si existia, entonces si ejecuto la actualización
@@ -65,7 +65,7 @@ exports.deleteProduct= async (req,res,next) =>{
     if (!product){ //Verifico que el objeto no existe para finalizar el proceso
             return res.status(404).json({ //Si el objeto no existe, return termina el metodo
             success:false,
-            message: 'No encontramos ese producto'
+            message: "No encontramos ese producto"
         })
     }
 
@@ -90,7 +90,7 @@ exports.newProduct=async(req,res,next)=>{
 //HABLEMOS DE FETCH
 //Ver todos los productos
 function verProductos(){
-    fetch('http://localhost:4000/api/productos')
+    fetch("http://localhost:4000/api/productos")
     .then(res=>res.json())
     .then(res=>console.log(res))
     .catch(err=>console.error(err))
@@ -100,11 +100,11 @@ function verProductos(){
 
 //Ver por id
 function verProductoPorID(id){
-    fetch('http://localhost:4000/api/producto/'+id)
+    fetch("http://localhost:4000/api/producto/"+id)
     .then(res=>res.json())
     .then(res=>console.log(res))
     .catch(err=>console.error(err))
 }
 
-//verProductoPorID('63456a8d9163cb9dbbcaa235'); Probamos el metodo con un id
+//verProductoPorID("63456a8d9163cb9dbbcaa235"); Probamos el metodo con un id
 

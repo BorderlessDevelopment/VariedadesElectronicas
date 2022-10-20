@@ -1,17 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 
 import {
     ALL_PRODUCTS_FAIL,
     ALL_PRODUCTS_SUCCESS,
     ALL_PRODUCTS_REQUEST,
     CLEAR_ERRORS
-} from '../constants/productsConstants';
+} from "../constants/productsConstants";
 
 export const getProducts = () => async (dispatch) => {
     try { 
         dispatch({type: ALL_PRODUCTS_REQUEST})
 
-        const {data} = await axios.get('api/productos');
+        const {data} = await axios.get("api/productos");
 
         dispatch({type: ALL_PRODUCTS_SUCCESS, 
             payload: data
