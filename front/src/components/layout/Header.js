@@ -6,7 +6,7 @@ const Header = () => {
             <nav className="navbar row">
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
-                        <img src="./images/nativo2.png" alt="Nativo Style logo"></img>
+                        <img src="./images/nutra-nuggets.png" alt="Nativo Style logo"></img>
                     </div>
                 </div>
 
