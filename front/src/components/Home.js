@@ -25,10 +25,8 @@ export const Home = () => {
             <br></br>
             {loading ? <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> : (
                 <Fragment>
-                    <MetaData title="Lo mejor para tu compañero"></MetaData>
-                    <br></br>
+                    <MetaData title="Lo mejor para tu compañero"></MetaData>                    
                     <h2 id="encabezado_productos">Ultimos Productos</h2>
-
                     <section id="productos" className="container mt-5">
                         <div className="row">
                             {productos && productos.map(producto => (
@@ -49,18 +47,12 @@ export const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             ))}
                         </div>
-                    </section>
-
-                </Fragment>
+                    </section>                    
+                </Fragment>                                
             )}
-
-
         </Fragment>
-    )
+    )    
 }
 export default Home
