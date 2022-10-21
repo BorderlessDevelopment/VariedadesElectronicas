@@ -1,43 +1,43 @@
 const mongoose = require("mongoose");
 
-const productosSchema=mongoose.Schema({
-    nombre:{
+const productosSchema = mongoose.Schema({
+    nombre: {
         type: String,
         required: [true, "Por favor registra el nombre del producto."],
-        trim:true,
-        maxLength:[120, "El nombre del producto no debe exceder 120 caracteres."]
+        trim: true,
+        maxLength: [120, "El nombre del producto no debe exceder 120 caracteres."]
     },
-    precio:{
-        type:Number,
+    precio: {
+        type: Number,
         required: [true, "Por favor registra el precio del producto"],
-        maxLength:[8, "El precio del producto no puede estar por encima de 99.999.999"],
+        maxLength: [8, "El precio del producto no puede estar por encima de 99.999.999"],
         default: 0.0
     },
-    descripcion:{
+    descripcion: {
         type: String,
         required: [true, "Por favor registra la descripcion del producto"]
     },
-    calificacion:{
+    calificacion: {
         type: Number,
         default: 0
     },
-    imagen:[
+    imagen: [
         {
-            public_id:{
+            public_id: {
                 type: String,
                 required: true
             },
-            url:{
+            url: {
                 type: String,
                 required: true
             },
         }
     ],
-    categoria:{
+    categoria: {
         type: String,
         required: [true, "Por favor seleccione la categoria del producto"],
-        enum:{
-            values:[
+        enum: {
+            values: [
                 "Alimento seco",
                 "Alimento humedo",
                 "Accesorio",
@@ -58,7 +58,7 @@ const productosSchema=mongoose.Schema({
         maxLength: [5, "Cantidad maxima del producto no puede sobrepasar 99999"],
         default: 0
     },
-    numCalificaciones:{
+    numCalificaciones: {
         type: Number,
         default: 0
     },
@@ -68,21 +68,21 @@ const productosSchema=mongoose.Schema({
                 type: String,
                 required: true
             },
-            rating:{
+            rating: {
                 type: Number,
                 required: true
             },
-            comentario:{
+            comentario: {
                 type: String,
                 required: true
             }
         }
     ],
-    fechaCreacion:{
-        type:Date,
+    fechaCreacion: {
+        type: Date,
         default: Date.now
     }
 
 })
 
-module.exports =mongoose.model("productos", productosSchema)
+module.exports = mongoose.model("productos", productosSchema)

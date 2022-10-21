@@ -9,7 +9,6 @@ const Header = () => {
                         <img src="./images/nutra-nuggets.png" alt="Nativo Style logo"></img>
                     </div>
                 </div>
-
                 <div className="col-12 col-md-6 mt-2 mt-md-0">
                     <div className="input-group">
                         <input
