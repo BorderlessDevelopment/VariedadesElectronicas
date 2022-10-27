@@ -21,6 +21,7 @@ export const Home = () => {
 
     return (
         <Fragment>
+            <br></br>
             {loading ? <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> :(
                 <Fragment>
                     <MetaData title="Lo mejor para tu compañero"></MetaData>

@@ -8,6 +8,6 @@ router.route("/productos").get(getProducts) //Establecemos desde que ruta querem
 router.route("/producto/nuevo").post(newProduct) //Establecemos la ruta 
 router.route("/producto/:id").get(getProductById) //Ruta para consultar por id del producto
 router.route("/producto/:id").put(updateProduct) //Ruta para actualizar producto
-router.route("/producto/:id").delete(deleteProduct) //Ruta para actualizar producto
+router.route("/producto/:id").delete(deleteProduct) //Ruta para eliminar producto
 
 module.exports = router;
