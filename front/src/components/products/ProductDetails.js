@@ -44,7 +44,7 @@ export const ProductDetails = () => {
     return (
         <Fragment>
             {loading ? <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> : (
-                
+
                 <Fragment>
                     <br></br>
                     
@@ -72,7 +72,7 @@ export const ProductDetails = () => {
                             <hr />
                             <p id="precio_producto"><b>${product.precio}</b></p>
                             <div className="stockCounter d-inline">
-                            <span className="btn btn-light minus" onClick={decreaseQty}>-</span>
+                                <span className="btn btn-light minus" onClick={decreaseQty}>-</span>
                                 <input type="number" className="form-control count d-inline" value={quantity} readOnly />
                                 <span className="btn btn-light plus" onClick={increaseQty}>+</span>
                             </div>
