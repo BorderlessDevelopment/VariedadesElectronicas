@@ -5,7 +5,7 @@ export const Footer = () => {
         <Fragment>
             <footer className="py-1">
                 <p className="text-center mt-1">
-                    Nativo Style - 2022 - Todos los derechos reservados
+                    VetyShop - 2022 - Todos los derechos reservados
                 </p>
             </footer>
 

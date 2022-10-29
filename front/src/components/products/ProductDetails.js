@@ -47,7 +47,7 @@ export const ProductDetails = () => {
 
                 <Fragment>
                     <br></br>
-                    
+
                     <MetaData title={product.nombre}></MetaData>
                     <div className="row d-flex justify-content-around">
                         <div className="col-12 col-lg-5 img-fluid" id="imagen_producto">
