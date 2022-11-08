@@ -7,7 +7,7 @@ const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(u
 //Ver la lista de productos
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
-    const resPerPage = 3;
+    const resPerPage = 4;
     const productsCount = await producto.countDocuments();
 
     const apiFeatures = new APIFeatures(producto.find(), req.query)
@@ -27,17 +27,6 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
         products
     })
 
-
-    const productos = await producto.find();
-    if (!productos) {
-        return next(new ErrorHandler("Informacion no encontrada", 404))
-    }
-
-    res.status(200).json({
-        success: true,
-        cantidad: productos.length,
-        productos
-    })
 })
 
 //Ver un producto por ID
@@ -181,7 +170,7 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 
 //HABLEMOS DE FETCH
 //Ver todos los productos
-function verProductos() {
+/*function verProductos() {
     fetch('http://localhost:4000/api/productos')
         .then(res => res.json())
         .then(res => console.log(res))
@@ -196,4 +185,4 @@ function verProductoPorID(id) {
         .then(res => res.json())
         .then(res => console.log(res))
         .catch(err => console.error(err))
-}
+}*/

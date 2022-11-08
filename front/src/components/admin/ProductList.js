@@ -24,7 +24,6 @@ export const ProductsList = () => {
     const setProducts = () => {
         const data = {
             columns: [
-                
                 {
                     label: 'Nombre',
                     field: 'nombre',
@@ -55,7 +54,6 @@ export const ProductsList = () => {
 
         productos.forEach(product => {
             data.rows.push({
-                
                 nombre: product.nombre,
                 precio: `$${product.precio}`,
                 inventario: product.inventario,
@@ -70,7 +68,7 @@ export const ProductsList = () => {
                     <Link to="/" className="btn btn-danger py-1 px-2">
                         <i className="fa fa-trash"></i>
                     </Link>
-
+                    
 
                 </Fragment>
             })

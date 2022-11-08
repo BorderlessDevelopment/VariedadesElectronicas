@@ -1,4 +1,3 @@
-
 import "./App.css";
 import React from "react";
 import Header from "./components/layout/Header";
@@ -25,6 +24,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />}/>
             <Route path="/productList" element={<ProductsList/>}/>
             <Route path="/nuevoProducto" element={<NewProduct />}/>
+            <Route path="/search/:keyword" element={<Home />}/>
             <Route path="/carrito" element={<Cart />}/>
           </Routes>
         </div>
