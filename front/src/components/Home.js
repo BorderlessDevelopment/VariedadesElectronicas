@@ -43,16 +43,16 @@ export const Home = () => {
                                 range
                                 className='t-slider'
                                 marks={{
-                                    50000: `$50000`,
+                                    100000: `$100000`,
                                     1000000: `$1000000`,
                                     2000000: `$2000000`,
                                     3000000: `$3000000`,
                                     4000000: `$4000000`,
                                     5000000: `$5000000`
                                 }}
-                                min={50000}
+                                min={100000}
                                 max={5000000}
-                                defaultValue={[50000, 5000000]}
+                                defaultValue={[100000, 5000000]}
                                 tipFormatter={value => `$${value}`}
                                 tipProps={{
                                     placement: 'top',
