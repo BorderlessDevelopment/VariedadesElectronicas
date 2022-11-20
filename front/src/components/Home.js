@@ -8,6 +8,7 @@ import Pagination from 'react-js-pagination'
 import Slider from "rc-slider"
 import 'rc-slider/assets/index.css'
 
+//constantes
 export const Home = () => {
     const params = useParams();
     const keyword = params.keyword;
