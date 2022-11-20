@@ -1,7 +1,7 @@
 {
   "name": "vetyshop",
   "version": "1.0.0",
-  "description": "Tienda virtual de productos para mascotas",
+  "description": "Tienda Virtual",
   "main": "server.js",
   "scripts": {
     "start": "node back/server.js",

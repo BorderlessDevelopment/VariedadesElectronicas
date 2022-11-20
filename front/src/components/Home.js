@@ -34,7 +34,7 @@ export const Home = () => {
             <br></br>
             {loading ? <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> : (
                 <Fragment>
-                    <MetaData title="Solución Tecnológica"></MetaData>
+                    <MetaData title="Variedades Electrónicas"></MetaData>
                     <h2 id="encabezado_productos">Nuestros Productos</h2>
 
                     <section id="productos" className='container mt-5'>
