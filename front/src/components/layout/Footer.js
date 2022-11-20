@@ -1,17 +1,14 @@
-import React, { Fragment } from "react"
+import React, { Fragment } from 'react'
 
 export const Footer = () => {
-    return (
-        <Fragment>
-            <footer className="py-1">
-                <p className="text-center mt-1">
-                    VetyShop - 2022 - Todos los derechos reservados
-                </p>
-            </footer>
+  return (
+    <Fragment>
+        <footer className="py-1">
+            <p className="text-center mt-1">
+                Variedades Electrónicas - 2022 - Mision TIC - Todos los derechos reservados
+            </p>
+        </footer>
 
-        </Fragment>
-
-    )
+    </Fragment>
+  )
 }
-
-export default Footer

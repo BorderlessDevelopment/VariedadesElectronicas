@@ -1,66 +1,58 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { addItemToCart, removeItemFromCart } from '../../actions/cartActions'
 import MetaData from '../layout/MetaData'
+import CurrencyFormat from 'react-currency-format';
+
 
 
 const Cart = () => {
-    const [quantity, setQuantity] = useState(1)
+    const navigate=useNavigate()
+    const dispatch = useDispatch();
+    const { cartItems } = useSelector(state => state.cart)
+    const {user} =useSelector(state => state.auth)
 
-    const increaseQty = () => {
-        const contador = document.querySelector('.count')
-        const qty = contador.valueAsNumber + 1;
-        setQuantity(qty)
+    const increaseQty = (id, quantity, inventario) => {
+        const newQty = quantity + 1;
+        if (newQty > inventario) return;
+        dispatch(addItemToCart(id, newQty))
     }
 
-    const decreaseQty = () => {
-        const contador = document.querySelector('.count')
-
-        const qty = contador.valueAsNumber - 1;
-        setQuantity(qty)
+    const decreaseQty = (id, quantity) => {
+        const newQty = quantity - 1;
+        if (newQty <= 0) return;
+        dispatch(addItemToCart(id, newQty))
     }
 
-    //Json de ejemplo
-    let cartItems = [
-        {
-            "_id": "63513206109735e58d94addd",
-            "nombre": "Nutra Nuggets Rojo",
-            "precio": 76000,
-            "imagen": "./images/productos/perrorojo.png",
-            "inventario": 40,
-        },
-        {
-            "_id": "63513298109735e58d94ade0",
-            "nombre": "Nutra Nuggets Azul",
-            "precio": 76000,
-            "imagen": "./images/productos/perroazul.png",
-            "inventario": 120,
-        },
-        {
-            "_id": "635132ea109735e58d94ade3",
-            "nombre": "Nutra Nuggets Verde",
-            "precio": 48000,
-            "imagen": "./images/productos/perroverde.png",
-            "inventario": 20,
+    const checkOutHandler = () =>{
+        if (user){
+            navigate("/shipping")
         }
-        
-    ]
+        else{
+            navigate("/login")
+        }
+   }
 
-    cartItems = Array.from(cartItems);
+
+    const removeCartItemHandler = (id) => {
+        dispatch(removeItemFromCart(id))
+    }
 
     return (
         <Fragment>
-            <MetaData title={'Your Cart'} />
+            <MetaData title={'Mi carrito'} />
 
 
             {cartItems.length === 0 ? <h2 className="mt-5">Su carrito esta vacio</h2> : (
                 <Fragment>
 
-                    <h2 className="mt-5">Su Carrito: <b>{cartItems.length} items</b></h2>
+                    <h2 className="mt-5">Su Carrito: <b>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} Productos</b></h2>
 
                     <div className="row d-flex justify-content-between">
                         <div className="col-12 col-lg-8">
 
-                            {cartItems && cartItems.map(item => (
+                        {cartItems && cartItems.map(item => (
                                 <Fragment>
                                     <hr />
 
@@ -71,7 +63,7 @@ const Cart = () => {
                                             </div>
 
                                             <div className="col-5 col-lg-3">
-                                                <Link to={`/producto/${item._id}`}>{item.nombre}</Link>
+                                            <Link to={`/producto/${item.product}`}>{item.nombre}</Link>
                                             </div>
 
 
@@ -81,16 +73,16 @@ const Cart = () => {
 
                                             <div className="col-4 col-lg-3 mt-4 mt-lg-0">
                                                 <div className="stockCounter d-inline">
-                                                    <span className="btn btn-light minus" onClick={decreaseQty}>-</span>
+                                                <span className="btn btn-light minus" onClick={() => decreaseQty(item.product, item.quantity)}>-</span>
 
-                                                    <input type="number" className="form-control count d-inline" value={quantity} readOnly />
+                                                <input type="number" className="form-control count d-inline" value={item.quantity} readOnly />
 
-                                                    <span className="btn btn-light plus" onClick={increaseQty}>+</span>
+                                                <span className="btn btn-light plus" onClick={()=>increaseQty(item.product, item.quantity, item.inventario)}>+</span>
                                                 </div>
                                             </div>
 
-                                            <div className="col-4 col-lg-1 mt-4 mt-lg-0">
-                                                <i id="delete_cart_item" className="fa fa-trash btn btn-danger" ></i>
+                                            <div className="col-3 col-lg-1 mt-4 mt-lg-0">
+                                            <i id="delete_cart_item" className="fa fa-trash btn btn-danger" onClick={() => removeCartItemHandler(item.product)}></i>
                                             </div>
 
                                         </div>
@@ -103,14 +95,13 @@ const Cart = () => {
 
                         <div className="col-12 col-lg-3 my-4">
                             <div id="order_summary">
-                                <h5><b>Total de la Compra </b></h5>
+                                <h4>Total de la Compra</h4>
                                 <hr />
-                                <p>Subtotal :  <span className="order-summary-values">$200.000</span></p>
-                                <p>I.V.A :  <span className="order-summary-values">$38.000</span></p>
-                                <p><b>Total</b> : <span className="order-summary-values">$238.000</span></p>
-
+                                <p>Productos:  <span className="order-summary-values">{cartItems.reduce((acc, item)=>(acc+Number(item.quantity)),0)} (Unidades)</span></p>
+                                <p>Total: <span> <CurrencyFormat value={cartItems.reduce((acc, item)=> acc+(item.quantity*item.precio),0).toFixed(0)} 
+                                    displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></span></p>
                                 <hr />
-                                <button id="checkout_btn" className="btn btn-primary btn-block">Comprar!</button>
+                                <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkOutHandler}>Comprar!</button>
                             </div>
                         </div>
                     </div>
