@@ -27,7 +27,7 @@ body {
 }
 
 nav {
-    background-color: #232f3e;
+    background-color: #48a779;
     padding: 1rem 1rem;
 }
 
@@ -502,7 +502,7 @@ footer {
 #sidebar {
     min-width: 100%;
     max-width: 100%;
-    background: #232f3e;
+    background: #48a779;
     color: #fff;
     transition: all 0.3s;
 }

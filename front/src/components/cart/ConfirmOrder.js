@@ -12,8 +12,8 @@ export const ConfirmOrder = () => {
     //calculemos los valores
     const precioItems = cartItems.reduce((acc, item) => acc + item.precio * item.quantity, 0)
     const precioEnvio = precioItems > 125000 ? 0 : 12000
-    const precioImpuesto = Number((0.19 * precioItems).toFixed(2))
-    const precioTotal = (precioItems + precioEnvio + precioImpuesto).toFixed(2)
+    const precioImpuesto = Number((0.19 * precioItems).toFixed(0))
+    const precioTotal = (precioItems + precioEnvio + precioImpuesto).toFixed(0)
 
     const processToPayment = () => {
         const data = {

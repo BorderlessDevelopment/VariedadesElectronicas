@@ -33,8 +33,8 @@ export const Home = () => {
             <br></br>
             {loading ? <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> : (
                 <Fragment>
-                    <MetaData title="Lo mejor para tu compañero"></MetaData>
-                    <h1 id="encabezado_productos">Ultimos Productos</h1>
+                    <MetaData title="Solución Tecnológica"></MetaData>
+                    <h2 id="encabezado_productos">Nuestros Productos</h2>
 
                     <section id="productos" className='container mt-5'>
                         <div className='row'>
@@ -43,11 +43,15 @@ export const Home = () => {
                                 className='t-slider'
                                 marks={{
                                     50000: `$50000`,
-                                    10000000: `$10000000`
+                                    1000000: `$1000000`,
+                                    2000000: `$2000000`,
+                                    3000000: `$3000000`,
+                                    4000000: `$4000000`,
+                                    5000000: `$5000000`
                                 }}
                                 min={50000}
-                                max={10000000}
-                                defaultValue={[50000, 10000000]}
+                                max={5000000}
+                                defaultValue={[50000, 5000000]}
                                 tipFormatter={value => `$${value}`}
                                 tipProps={{
                                     placement: 'top',
