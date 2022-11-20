@@ -48,7 +48,7 @@ const Dashboard = () => {
                             <div className="col-xl-12 col-sm-12 mb-3">
                                 <div className="card border-primary mb- o-hidden h-100">
                                     <div className="card-body">
-                                        <div className="text-center card-font-size">Ventas Totales<br /> <b>${cantidadTotal && cantidadTotal.toFixed(2)}</b>
+                                        <div className="text-center card-font-size">Ventas Totales<br /> <b>${cantidadTotal && cantidadTotal.toFixed(0)}</b>
                                         </div>
                                     </div>
                                 </div>
